@@ -10,5 +10,11 @@ public class Block {
         this.data = data;
         this.preBlockID = preHash;
         this.time = new Date().getTime();
+        this.blockId = calcBlockID();
+    }
+
+    public String calcBlockID(){
+        String calcBlockID = Utilities.cryptohelp(preBlockID + Long.toString(time) + data);
+        return calcBlockID;
     }
 }
