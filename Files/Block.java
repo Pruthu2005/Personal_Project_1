@@ -1,14 +1,14 @@
 import java.util.Date;
 
 public class Block {
-    public String hash;
-    public String preHash;
+    public String blockId;
+    public String preBlockID;
     private String data;
     private long time;
 
     public Block(String data, String preHash){
         this.data = data;
-        this.preHash = preHash;
+        this.preBlockID = preHash;
         this.time = new Date().getTime();
     }
 }
