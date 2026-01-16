@@ -5,11 +5,11 @@ public class Utilities {
     public static String cryptohelp(String input){
 
         try{
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(input.getBytes("UTF-8"));
+            MessageDigest apply = MessageDigest.getInstance("SHA-256");
+            byte[] id = apply.digest(input.getBytes("UTF-8"));
             StringBuffer hexString = new StringBuffer();
-            for (int i = 0; i < hash.length; i++){
-                String hex = Integer.toHexString(0xff & hash[i]);
+            for (int i = 0; i < id.length; i++){
+                String hex = Integer.toHexString(0xff & id[i]);
                 if (hex.length() == 1){
                     hexString.append('0');
                 }
