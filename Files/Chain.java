@@ -17,4 +17,25 @@ public class Chain {
         String chainJson = new GsonBuilder().setPrettyPrinting().create().toJson(chain);
         System.out.println(chainJson);
     }
+
+    public static Boolean isVal(){
+        Block current;
+        Block previous;
+
+        for (int i=1; i< chain.size(); i++){
+            current = chain.get(i);
+            previous = chain.get(i-1);
+            if (!current.blockId.equals(current.calcBlockID())){
+                System.out.println("Block ID's are not the same. Invalid");
+                return false;
+            }
+            if (!previous.blockId.equals(previous.calcBlockID())){
+                System.out.println("Block ID's are not the same. Invalid");
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 }
