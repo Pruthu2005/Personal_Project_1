@@ -22,7 +22,7 @@ public class Block {
     public void mining(int zeros){
         String goal = new String (new char[zeros]).replace('\0','0');
         while (!blockId.substring(0,zeros).equals(goal)){
-            zero += 1;
+            zero ++ ;
             blockId = calcBlockID();
         }
         System.out.println("Block has been mined. Block ID: " + blockId);
