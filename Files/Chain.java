@@ -3,7 +3,7 @@ import com.google.gson.*;
 
 public class Chain {
     public static ArrayList<Block> chain = new ArrayList<>();
-    public static int zeros = 1;
+    public static int zeros = 5;
 
     public static void main(String[] args){
         Block block1 = new Block("First Block","0");
@@ -24,7 +24,7 @@ public class Chain {
         System.out.println("Is Block Chain valid: " + isVal());
 
         String chainJson = new GsonBuilder().setPrettyPrinting().create().toJson(chain);
-        System.out.println("Block Chain: ");
+        System.out.println("\nBlock Chain: ");
         System.out.println(chainJson);
     }
 
@@ -40,11 +40,11 @@ public class Chain {
                 System.out.println("Block ID's are not the same. Invalid");
                 return false;
             }
-            if (!previous.blockId.equals(previous.calcBlockID())){
+            if (!previous.blockId.equals(current.preBlockID)){
                 System.out.println("Block ID's are not the same. Invalid");
                 return false;
             }
-            if (!current.blockId.substring(0,zeros).equals(blockIdGoal)){
+            if (!current.blockId.substring(0, zeros).equals(blockIdGoal)){
                 System.out.println("The block cannot be mined");
                 return false;
             }
