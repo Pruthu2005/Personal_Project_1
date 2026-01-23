@@ -1,3 +1,5 @@
+package ChainEssentials;
+
 import java.security.MessageDigest;
 
 public class Utilities {

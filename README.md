@@ -3,15 +3,15 @@
   Although a tutorial was used as guidance, all code was written manually to reinforce understanding of how blockchain systems work at a low level.
 
 There are a 3 different classes:
-  **Block Class**
-    The Block class represents an individual block within the blockchain. Each block stores transaction-related data, including a transaction message (e.g., “User sent $X to OtherUser”), a timestamp, the hash of the previous block, a nonce, and the block’s own hash.
+  **ChainEssentials.Block Class**
+    The ChainEssentials.Block class represents an individual block within the blockchain. Each block stores transaction-related data, including a transaction message (e.g., “User sent $X to OtherUser”), a timestamp, the hash of the previous block, a nonce, and the block’s own hash.
     This class is responsible for generating the block’s hash using SHA-256 and supports mining by adjusting the nonce until a valid hash meeting the difficulty requirement is produced.
 
  **Utility Class**
     The Utility class contains helper methods used throughout the project. It includes a cryptographic helper function that takes a string as input and generates a SHA-256 hash. This ensures data integrity and plays a key role in maintaining the immutability of the blockchain.
 
-  **Chain Class**
-    The Chain class manages the blockchain as an ordered sequence of blocks stored in an ArrayList. It handles:
+  **ChainEssentials.Chain Class**
+    The ChainEssentials.Chain class manages the blockchain as an ordered sequence of blocks stored in an ArrayList. It handles:
     Adding new blocks to the chain
     Mining blocks
     Validating the blockchain by checking hash consistency and block linkage

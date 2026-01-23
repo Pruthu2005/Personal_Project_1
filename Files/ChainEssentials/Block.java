@@ -1,3 +1,5 @@
+package ChainEssentials;
+
 import java.util.Date;
 
 public class Block {
@@ -25,6 +27,6 @@ public class Block {
             calc += 1;
             blockId = calcBlockID();
         }
-        System.out.println("Block has been mined. Block ID: " + blockId);
+        System.out.println("ChainEssentials.Block has been mined. ChainEssentials.Block ID: " + blockId);
     }
 }
