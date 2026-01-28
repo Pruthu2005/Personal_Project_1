@@ -1,6 +1,4 @@
 import ChainEssentials.Utilities;
-import com.sun.tools.javac.util.StringUtils;
-
 import java.security.PublicKey;
 import java.util.ArrayList;
 

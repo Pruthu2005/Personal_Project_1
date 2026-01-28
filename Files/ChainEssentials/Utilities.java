@@ -1,6 +1,6 @@
 package ChainEssentials;
-
-import java.security.MessageDigest;
+import java.security.*;
+import java.util.Base64;
 
 public class Utilities {
 
@@ -22,5 +22,36 @@ public class Utilities {
         catch (Exception e){
             throw new RuntimeException(e);
         }
+    }
+
+    public static byte[] applyECDSA(PrivateKey privateKey, String input){
+        Signature signature;
+        byte[] output = new byte[0];
+        try {
+            signature = Signature.getInstance("ECDSA","BC");
+            signature.initSign(privateKey);
+            byte[] stringByte = input.getBytes();
+            signature.update(stringByte);
+            byte[] OGSig = signature.sign();
+            output = OGSig;
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        return output;
+    }
+
+    public static boolean verifySig(PublicKey publicKey, String input, byte[] sign){
+        try {
+            Signature signVerify = Signature.getInstance("ECDCSA", "BC");
+            signVerify.initVerify(publicKey);
+            signVerify.update(input.getBytes());
+            return signVerify.verify(sign);
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getString(Key key){
+        return Base64.getEncoder().encodeToString(key.getEncoded());
     }
 }
