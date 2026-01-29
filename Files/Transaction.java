@@ -1,4 +1,6 @@
 import ChainEssentials.Utilities;
+
+import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 
@@ -25,5 +27,15 @@ public class Transaction {
     private String TransactionHash(){
         generatedSeq += 1;
         return Utilities.cryptohelp(senderID.toString()+ receiverID.toString()+ Float.toString(amount));
+    }
+
+    public void genSig(PrivateKey privateKey){
+        String data = Utilities.getString(senderID) + Utilities.getString(receiverID) + Float.toString(amount);
+        identifier = Utilities.applyECDSA(privateKey, data);
+    }
+
+    public boolean verifySig(){
+        String data = Utilities.getString(senderID) + Utilities.getString(receiverID) + Float.toString(amount);
+        return Utilities.verifySig(senderID,data,identifier);
     }
 }
