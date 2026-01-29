@@ -42,7 +42,7 @@ public class Utilities {
 
     public static boolean verifySig(PublicKey publicKey, String input, byte[] sign){
         try {
-            Signature signVerify = Signature.getInstance("ECDCSA", "BC");
+            Signature signVerify = Signature.getInstance("ECDSA", "BC");
             signVerify.initVerify(publicKey);
             signVerify.update(input.getBytes());
             return signVerify.verify(sign);
