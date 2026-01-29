@@ -11,6 +11,22 @@ public class Chain {
     public static Wallet wallet2;
 
     public static void main(String[] args){
+        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+
+        wallet1 = new Wallet();
+        wallet2 = new Wallet();
+
+        System.out.println("Private and Public keys: ");
+        System.out.println(Utilities.getString(wallet1.privateKey));
+        System.out.println(Utilities.getString(wallet1.publicKey));
+
+        System.out.println("Creating Transaction: ");
+        Transaction transaction = new Transaction(wallet1.publicKey, wallet2.publicKey, 5,null);
+        transaction.genSig(wallet1.privateKey);
+
+        System.out.println("Checking if transaction is valid: ");
+        System.out.println(transaction.verifySig());
+
         Block block1 = new Block("First ChainEssentials.Block","0");
         chain.add(block1);
         System.out.println("Mining block 1...");
