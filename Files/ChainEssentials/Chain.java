@@ -1,11 +1,14 @@
 package ChainEssentials;
-
+import java.security.Security;
 import java.util.ArrayList;
+import java.util.Base64;
 import com.google.gson.*;
 
 public class Chain {
     public static ArrayList<Block> chain = new ArrayList<>();
     public static int zeros = 5;
+    public static Wallet wallet1;
+    public static Wallet wallet2;
 
     public static void main(String[] args){
         Block block1 = new Block("First ChainEssentials.Block","0");
