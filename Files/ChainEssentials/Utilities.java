@@ -1,5 +1,6 @@
 package ChainEssentials;
 import java.security.*;
+import java.util.ArrayList;
 import java.util.Base64;
 
 public class Utilities {
@@ -53,5 +54,24 @@ public class Utilities {
 
     public static String getString(Key key){
         return Base64.getEncoder().encodeToString(key.getEncoded());
+    }
+
+    public static String genMerkleRoot(ArrayList<Transaction> transactions){
+        int length = transactions.size();
+        ArrayList<String> prevLayer = new ArrayList<String>();
+        for (Transaction t:transactions){
+            prevLayer.add(t.TransactionID);
+        }
+        ArrayList<String> currentLay = prevLayer;
+        while (length > 1){
+            currentLay = new ArrayList<String>();
+            for (int i=1; i < prevLayer.size(); i++){
+                currentLay.add(cryptohelp(prevLayer.get(i-1) + prevLayer.get(i)));
+            }
+            length = currentLay.size();
+            prevLayer = currentLay;
+        }
+        String merkleRoot = (currentLay.size() == 1) ? currentLay.get(0) : "";
+        return merkleRoot;
     }
 }
