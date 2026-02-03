@@ -3,7 +3,7 @@
 This project is a simplified blockchain implementation written in Java, developed as a personal learning project by following and independently coding along with a tutorial by CryptoKshatriya. The goal of the project was to gain a practical understanding of fundamental blockchain concepts such as block creation, cryptographic hashing, chain validation, and mining.
 Although a tutorial was used as guidance, all code was written manually to reinforce understanding of how blockchain systems work at a low level.
 
-There are a 3 different classes:
+There are a 7 different classes:
 
 **Block Class:**
   
