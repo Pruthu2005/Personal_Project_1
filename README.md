@@ -4,6 +4,7 @@ This project is a simplified blockchain implementation written in Java, develope
 Although a tutorial was used as guidance, all code was written manually to reinforce understanding of how blockchain systems work at a low level.
 
 There are a 3 different classes:
+
 **Block Class:**
   
 The ChainEssentials.Block class represents an individual block within the blockchain. Each block stores transaction-related data, including a transaction message (e.g., “User sent $X to OtherUser”), a timestamp, the hash of the previous block, a nonce, and the block’s own hash.
