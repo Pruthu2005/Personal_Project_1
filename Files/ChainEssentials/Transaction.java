@@ -1,7 +1,4 @@
 package ChainEssentials;
-
-import com.sun.source.tree.BreakTree;
-
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -51,7 +48,7 @@ public class Transaction {
             i.UTXO = Chain.UTXOs.get(i.transactionOutID);
         }
 
-        if (getInputsamount() < 5){
+        if (getInputsamount() < Chain.minTransaction){
             System.out.println("Transaction value is too small");
             return false;
         }
